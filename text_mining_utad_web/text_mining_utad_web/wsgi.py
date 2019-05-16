@@ -1,5 +1,5 @@
 """
-WSGI config for textMiningUtadWeb project.
+WSGI config for text_mining_utad_web project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'textMiningUtadWeb.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'text_mining_utad_web.settings')
 
 application = get_wsgi_application()
