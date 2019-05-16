@@ -1,3 +1,4 @@
+django
 requests
 pytest
 nltk==3.4
