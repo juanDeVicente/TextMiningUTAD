@@ -7,4 +7,4 @@ python:
   - "nightly"  # nightly build
 install:
   - pip install -r requirements.txt
-script: pytest
+script: pytest word_count/test/word_count_test.py
