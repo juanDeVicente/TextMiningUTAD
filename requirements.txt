@@ -1,2 +1,4 @@
+requests
 pytest
 nltk==3.4
+python-twitter == 3.5
