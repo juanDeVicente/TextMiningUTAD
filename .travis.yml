@@ -14,3 +14,12 @@ script:
 branches:
   except:
     - master
+notifications:
+  email:
+    recipients:
+      - paula.pascual@live.u-tad.com
+      - claudia.rodriguez@live.u-tad.com
+      - jaime.escribano@live.u-tad.com
+      - juan.vicente@live.u-tad.com
+    on_failure: never
+    on_success: always
