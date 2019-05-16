@@ -11,3 +11,6 @@ script:
   - cd word_count
   - cd test
   - pytest word_count_tests.py
+branches:
+  except:
+    - master
