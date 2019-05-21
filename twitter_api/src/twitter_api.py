@@ -6,8 +6,9 @@ Clase que permite contar las palabras de los útlimos tweets
 """
 import requests
 
-from .word_count import word_count
+from get_my_tweets.word_frequency import word_frequency
 from functools import reduce
+from datetime import datetime, timedelta
 
 import twitter
 import os
@@ -24,29 +25,33 @@ class twitter_word_count(object):
         self.api = api
 
     def get_last_week_tweets(self, screen_name=None):
+
+        last_week = datetime.today() - timedelta(days=7)
+        last_week.srftime('%Y-%m-%d')
         return [
             tweet.text for tweet in
-            self.api.GetUserTimeline(screen_name=screen_name, count=200, include_rts=False, exclude_replies=True)
+            self.api.GetSearch(term = 'from:screen_name', since= last_week)
             [0:50]
         ]
 
     def get_most_used_words_and_tweets(self, screen_name=None, language='spanish'):
         try:
-            tweets = self.get_last_n_tweets(screen_name)
+            tweets = self.get_last_week_tweets(screen_name)
         except requests.exceptions.ConnectionError:
             raise ValueError('No hay conexion a Internet')
 
         tweets = reduce((lambda x, y: x + ', ' + y), tweets)
         word_count(tweets, language)[0:10]
-        return self.create_words_and_tweets_matrix(tweets, word_count(tweets, language)[0:10])
+        return self.create_words_and_tweets_matrix(tweets, word_frequency(tweets, language)[0:10])
 
     def create_words_and_tweets_matrix(self, tweets, words):
-        i = 0
         matrix = []
-
+        aux_tweet_list = []
         for key, timesUsed in words:
-            matrix.append(key, timesUsed, tweets[i])
-            i = 1 + i
+            for tweet in tweets:
+                if key in tweet: aux_tweet_list = []
+            matrix.append(key, timesUsed,aux_tweet_list)
+            aux_tweet_list = []
 
         return matrix
 
