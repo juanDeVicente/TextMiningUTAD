@@ -41,8 +41,8 @@ class twitter_word_count(object):
             raise ValueError('No hay conexion a Internet')
 
         tweets = reduce((lambda x, y: x + ', ' + y), tweets)
-        word_count(tweets, language)[0:10]
-        return self.create_words_and_tweets_matrix(tweets, word_frequency(tweets, language)[0:10])
+        counted_words = word_frequency(tweets, language)[0:10]
+        return self.create_words_and_tweets_matrix(tweets, counted_words)
 
     def create_words_and_tweets_matrix(self, tweets, words):
         matrix = []
