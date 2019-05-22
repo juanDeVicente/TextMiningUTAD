@@ -3,9 +3,7 @@ from unittest.mock import MagicMock
 
 import requests
 
-
-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import pytest
@@ -13,54 +11,36 @@ from unittest.mock import MagicMock
 
 import requests
 
-from twitter_api.src.twitter_word_count import *
 
 from twitter_api.src.twitter_api import twitter_word_count
 
 
-def test_example():
-    tweets = ['hola', 'que tal estas', 'pues yo muy bien']
+def test_less_than_10_tweets():
+    tweets = ['Hola buenas dias, me llamo Pepe', 'buenas noches', 'me llamo pepe']
     twc = twitter_word_count(None)
     twc.get_last_week_tweets = MagicMock(return_value=tweets)
-    assert twc.get_most_used_words_and_tweets() == [('hola', 1), ('tal', 1), ('pues', 1), ('bien', 1)]
+    assert twc.get_most_used_words_and_tweets() == [['buenas', 22.2, ['Hola buenas dias, me llamo Pepe','buenas noches']],
+                                                    ['llamo',22.2,['Hola buenas dias, me llamo Pepe','me llamo pepe']],
+                                                    ['pepe', 22.2, ['Hola buenas dias, me llamo Pepe','me llamo pepe' ]],
+                                                    ['hola', 11.1, ['Hola buenas dias, me llamo Pepe']],
+                                                    ['dias', 11.1, ['Hola buenas dias, me llamo Pepe']],
+                                                    ['noches', 11.1, ['buenas noches']]]
 
-
-def test_quijote():
-    tweets = ['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,',
-              'o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,', 'adarga antigua, rocín flaco',
-              ' y galgo corredor', 'Una olla de algo más vaca que carnero, ',
-              'salpicón las más noches, duelos y quebrantos los sábados,', 'sábados', 'y lentejas los viernes']
+def test_more_than_10_tweets():
+    tweets = ['Hola buenas dias, me llamo Pepe', 'buenas noches', 'me llamo pepe','pedro juan alberto sabado miercoles jueves']
     twc = twitter_word_count(None)
     twc.get_last_week_tweets = MagicMock(return_value=tweets)
-    print(twc.get_words_of_tweets())
-    assert twc.get_most_used_words_and_tweets() == [['sábados', 20,[ 'salpicón las más noches, duelos y quebrantos los sábados,',
-																	   'sábados']],
-													['lugar', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['mancha', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['cuyo', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['nombre', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['quiero', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['acorda1rme', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['tiempo', 10,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
-													['vivía', 10,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
-													['hidalgo', 10,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
-													]
-'''
-													['lanza', 4.76,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']]
-													
-
-
-													['astillero', 4.76,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
-													['adarga', 4.76,['adarga antigua, rocín flaco']], 
-													['antigua', 4.76,['adarga antigua, rocín flaco']],
-													['rocín', 4.76,['adarga antigua, rocín flaco']],
-													['flaco', 4.76,['adarga antigua, rocín flaco']],
-													['galgo', 4.76,[' y galgo corredor']],
-													['corredor', 4.76,[' y galgo corredor']],
-													['olla', 4.76],
-													['vaca', 4.76]]
-'''
-
+    assert twc.get_most_used_words_and_tweets() == [['buenas', 13.3, ['Hola buenas dias, me llamo Pepe','buenas noches']],
+                                                    ['llamo',13.3,['Hola buenas dias, me llamo Pepe','me llamo pepe']],
+                                                    ['pepe', 13.3, ['Hola buenas dias, me llamo Pepe','me llamo pepe' ]],
+                                                    ['hola', 6.7, ['Hola buenas dias, me llamo Pepe']],
+                                                    ['dias', 6.7, ['Hola buenas dias, me llamo Pepe']],
+                                                    ['noches', 6.7, ['buenas noches']],
+                                                    ['pedro',6.7,['pedro juan alberto sabado miercoles jueves']],
+                                                    ['juan', 6.7, ['pedro juan alberto sabado miercoles jueves']],
+                                                    ['alberto', 6.7, ['pedro juan alberto sabado miercoles jueves']],
+                                                    ['sabado',6.7, ['pedro juan alberto sabado miercoles jueves']]
+                                                    ]
 
 def test_none_tweets():
     tweets = []
