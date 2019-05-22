@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-2">
+        <h1>Palabra</h1>
+    </div>
+    <div class="col-1">
+        <h1>Frecuencia</h1>
+    </div>
+    <div class="col-9">
+        <h1>Tweets</h1>
+    </div>
+</div>
+{% for word in frequency_words %}
+<div class="row">
+    <div class="col-2">
+        {{word.0}}
+    </div>
+    <div class="col-1">
+        {{word.1}}
+    </div>
+    <div class="col-9">
+        {% for tweet in word.2%}
+        <div class="row">
+            {{tweet}}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
