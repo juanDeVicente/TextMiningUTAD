@@ -21,64 +21,64 @@ CONSUMER_SECRET = ''
 
 class twitter_word_count(object):
 
-    def __init__(self, api):
-        self.api = api
+	def __init__(self, api):
+		self.api = api
 
-    def get_last_week_tweets(self, screen_name=None):
+	def get_last_week_tweets(self, screen_name=None):
 
-        last_week = datetime.today() - timedelta(days=7)
-        return [x.text
-                for x in self.api.GetUserTimeline(screen_name=screen_name, include_rts=False, exclude_replies=True)
-                if datetime.strptime(x.created_at, '%a %b %d %H:%M:%S %z %Y').timestamp() > last_week.timestamp()
-        ]
+		last_week = datetime.today() - timedelta(days=7)
+		return [x.text
+				for x in self.api.GetUserTimeline(screen_name=screen_name, include_rts=False, exclude_replies=True)
+				if datetime.strptime(x.created_at, '%a %b %d %H:%M:%S %z %Y').timestamp() > last_week.timestamp()
+				]
 
-    def get_most_used_words_and_tweets(self, screen_name=None, language='spanish'):
-        try:
-            tweets = self.get_last_week_tweets(screen_name)
-        except requests.exceptions.ConnectionError:
-            raise ValueError('No hay conexion a Internet')
+	def get_most_used_words_and_tweets(self, screen_name=None, language='spanish'):
+		try:
+			tweets = self.get_last_week_tweets(screen_name)
+		except requests.exceptions.ConnectionError:
+			raise ValueError('No hay conexion a Internet')
 
-        tweets_array = reduce((lambda x, y: x + ', ' + y), tweets)
-        counted_words = word_frequency.word_frequency(tweets_array, language)[0:10]
-        return self.create_words_and_tweets_matrix(tweets, counted_words)
+		tweets_array = reduce((lambda x, y: x + ', ' + y), tweets)
+		counted_words = word_frequency.word_frequency(tweets_array, language)[0:10]
+		return self.create_words_and_tweets_matrix(tweets, counted_words)
 
-    def create_words_and_tweets_matrix(self, tweets, words):
-        matrix = []
-        aux_tweet_list = []
-        for key, timesUsed in words:
-            for tweet in tweets:
-                aux_lowercase_tweet = tweet.lower()
+	def create_words_and_tweets_matrix(self, tweets, words):
+		matrix = []
+		aux_tweet_list = []
+		for key, timesUsed in words:
+			for tweet in tweets:
+				aux_lowercase_tweet = tweet.lower()
 
-                if key in aux_lowercase_tweet:
-                    aux_tweet_list.append(tweet)
-            matrix.append([key, timesUsed, aux_tweet_list])
-            aux_tweet_list = []
+				if key in aux_lowercase_tweet:
+					aux_tweet_list.append(tweet)
+			matrix.append([key, timesUsed, aux_tweet_list])
+			aux_tweet_list = []
 
-        return matrix
+		return matrix
 
 
 if __name__ == "__main__":
-    try:
-        ACCESS_TOKEN_KEY = os.environ['ACCESS_TOKEN_KEY']
-        ACCESS_TOKEN_SECRET = os.environ['ACCESS_TOKEN_SECRET']
-        CONSUMER_KEY = os.environ['CONSUMER_KEY']
-        CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
-    except KeyError:
-        print('No se ha establecido algun parametro para conectar con la api de Twitter')
-        exit(-1)
+	try:
+		ACCESS_TOKEN_KEY = os.environ['ACCESS_TOKEN_KEY']
+		ACCESS_TOKEN_SECRET = os.environ['ACCESS_TOKEN_SECRET']
+		CONSUMER_KEY = os.environ['CONSUMER_KEY']
+		CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
+	except KeyError:
+		print('No se ha establecido algun parametro para conectar con la api de Twitter')
+		exit(-1)
 
-    print('ACCESS_TOKEN_KEY:', ACCESS_TOKEN_KEY)
-    print('ACCESS_TOKEN_SECRET:', ACCESS_TOKEN_SECRET)
-    print('CONSUMER_KEY:', CONSUMER_KEY)
-    print('CONSUMER_SECRET:', CONSUMER_SECRET)
+	print('ACCESS_TOKEN_KEY:', ACCESS_TOKEN_KEY)
+	print('ACCESS_TOKEN_SECRET:', ACCESS_TOKEN_SECRET)
+	print('CONSUMER_KEY:', CONSUMER_KEY)
+	print('CONSUMER_SECRET:', CONSUMER_SECRET)
 
-    api = twitter.Api(
-        CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET
-    )
-    screen_name = 'perezreverte'  # Aqui va le nombre de la cuenta que queramos mirar (Arturo Perez Reverte) Si es None, devuelve los del usuario a los que este asociado la cuenta
+	api = twitter.Api(
+		CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET
+	)
+	screen_name = 'perezreverte'  # Aqui va le nombre de la cuenta que queramos mirar (Arturo Perez Reverte) Si es None, devuelve los del usuario a los que este asociado la cuenta
 
-    language = 'spanish'
-    twc = twitter_word_count(api)
+	language = 'spanish'
+	twc = twitter_word_count(api)
 
-    for x in twc.get_most_used_words_and_tweets(screen_name, language):
-        print(x)
+	for x in twc.get_most_used_words_and_tweets(screen_name, language):
+		print(x)
