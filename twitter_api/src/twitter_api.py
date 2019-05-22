@@ -67,10 +67,10 @@ if __name__ == "__main__":
         print('No se ha establecido algun parametro para conectar con la api de Twitter')
         exit(-1)
 
-    print(ACCESS_TOKEN_KEY)
-    print(ACCESS_TOKEN_SECRET)
-    print(CONSUMER_KEY)
-    print(CONSUMER_SECRET)
+    print('ACCESS_TOKEN_KEY:', ACCESS_TOKEN_KEY)
+    print('ACCESS_TOKEN_SECRET:', ACCESS_TOKEN_SECRET)
+    print('CONSUMER_KEY:', CONSUMER_KEY)
+    print('CONSUMER_SECRET:', CONSUMER_SECRET)
 
     api = twitter.Api(
         CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET
@@ -80,4 +80,5 @@ if __name__ == "__main__":
     language = 'spanish'
     twc = twitter_word_count(api)
 
-    print(twc.get_most_used_words_and_tweets(screen_name, language))
+    for x in twc.get_most_used_words_and_tweets(screen_name, language):
+        print(x)
