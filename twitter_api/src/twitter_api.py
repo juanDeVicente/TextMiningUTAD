@@ -6,7 +6,7 @@ Clase que permite contar las palabras de los útlimos tweets
 """
 import requests
 
-from get_my_tweets.word_frequency import word_frequency
+from word_frequency.src import word_frequency
 from functools import reduce
 from datetime import datetime, timedelta
 
@@ -40,8 +40,8 @@ class twitter_word_count(object):
         except requests.exceptions.ConnectionError:
             raise ValueError('No hay conexion a Internet')
 
-        tweets = reduce((lambda x, y: x + ', ' + y), tweets)
-        counted_words = word_frequency(tweets, language)[0:10]
+        tweets_array = reduce((lambda x, y: x + ', ' + y), tweets)
+        counted_words = word_frequency.word_frequency(tweets_array, language)[0:10]
         return self.create_words_and_tweets_matrix(tweets, counted_words)
 
     def create_words_and_tweets_matrix(self, tweets, words):
@@ -49,8 +49,11 @@ class twitter_word_count(object):
         aux_tweet_list = []
         for key, timesUsed in words:
             for tweet in tweets:
-                if key in tweet: aux_tweet_list = []
-            matrix.append(key, timesUsed,aux_tweet_list)
+                aux_lowercase_tweet = tweet.lower()
+
+                if key in aux_lowercase_tweet:
+                    aux_tweet_list.append(tweet)
+            matrix.append([key, timesUsed,aux_tweet_list])
             aux_tweet_list = []
 
         return matrix
