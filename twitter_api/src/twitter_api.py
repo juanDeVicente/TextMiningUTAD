@@ -28,7 +28,7 @@ class twitter_word_count(object):
 
         last_week = datetime.today() - timedelta(days=7)
         return [x.text
-                for x in self.api.GetUserTimeline(screen_name=screen_name, count=200, include_rts=False, exclude_replies=True)
+                for x in self.api.GetUserTimeline(screen_name=screen_name, include_rts=False, exclude_replies=True)
                 if datetime.strptime(x.created_at, '%a %b %d %H:%M:%S %z %Y').timestamp() > last_week.timestamp()
         ]
 
