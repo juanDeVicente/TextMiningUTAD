@@ -4,7 +4,10 @@ from nltk.corpus import stopwords
 import sys
 
 
-def word_count(text, stopwords_language='english'):
+def word_frequency(text, stopwords_language='english'):
+    # sacamos el numero de veces que la palabra se utiliza sin stopwords a lo largo de todos los tweets
+    # multiplicamos por 100 para que lo tengamos en porcentaje
+
     nltk.data.path.append(os.path.dirname(__file__) + '/nltk_data')
     if not isinstance(text, str) or not isinstance(stopwords_language, str):
         raise ValueError
@@ -28,12 +31,18 @@ def word_count(text, stopwords_language='english'):
 
     words_count = {}
 
+    words_total = len(words)
+
     for key in words:
         words_count[key] = words_count.get(key, 0) + 1
         # get funciona tal que si existe la clave devuelve el valor, si no devuelve el segundo parametro
 
     if len(words_count) == 0:
         return []
+
+    for key in words_count:
+        words_count[key] = round((words_count[key] / words_total)*100, 1)
+
     return sorted(words_count.items(), key=lambda x: x[1], reverse=True)  # Ordenamos las palabras segun lo pedido
 
 
@@ -51,4 +60,4 @@ def run():
 
 
 if __name__ == "__main__":
-    print(word_count('¿¿¿¿????? ¡¡¡¡ ???? !!!!! ... ,,,,'))
+    print(word_frequency('¿¿¿¿????? ¡¡¡¡ ???? !!!!! ... ,,,,'))
