@@ -8,9 +8,10 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - cd word_count
+  - python -m nltk.downloader "stopwords"
+  - cd word_frequency
   - cd test
-  - pytest word_count_tests.py
+  - pytest word_frequency_tests.py
 branches:
   except:
     - master
