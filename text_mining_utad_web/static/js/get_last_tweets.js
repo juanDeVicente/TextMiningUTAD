@@ -1,6 +1,7 @@
 function get_last_tweets() {
-    document.getElementById('word_list').innerHTML = '';
-    var form = $('#report-form');
+    event.preventDefault();
+    document.getElementById('frequency_words_row').innerHTML = '';
+    var form = $('#search_form');
     event.preventDefault();
     $.ajax({
         url : form.attr('action'),
@@ -8,11 +9,11 @@ function get_last_tweets() {
         data: form.serialize(),
 
         success : function (response) {
-            document.getElementById('word_list').innerHTML = response;
+            document.getElementById('frequency_words_row').innerHTML = response;
         }
     })
 }
 function delete_last_tweets() {
-    document.getElementById('word_list').innerHTML = '';
-    document.getElementById('username').value = '';
+    document.getElementById('frequency_words_row').innerHTML = '';
+    document.getElementById('id_screen_name').value = '';
 }
