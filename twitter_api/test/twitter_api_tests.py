@@ -33,21 +33,23 @@ def test_quijote():
     twc = twitter_word_count(None)
     twc.get_last_week_tweets = MagicMock(return_value=tweets)
     print(twc.get_words_of_tweets())
-    assert twc.get_most_used_words_and_tweets() == [['sábados', 9.52,[ 'salpicón las más noches, duelos y quebrantos los sábados,',
+    assert twc.get_most_used_words_and_tweets() == [['sábados', 20,[ 'salpicón las más noches, duelos y quebrantos los sábados,',
 																	   'sábados']],
-													['lugar', 4.76,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['mancha', 4.76,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['cuyo', 4.76,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['nombre', 4.76,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['quiero', 4.76,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['acorda1rme', 4.76,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
-													['tiempo', 4.76,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
-													['vivía', 4.76,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
-													['hidalgo', 4.76,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
-													['lanza', 4.76,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']]
+													['lugar', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
+													['mancha', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
+													['cuyo', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
+													['nombre', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
+													['quiero', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
+													['acorda1rme', 10,['En un lugar de la Mancha, de cuyo nombre no quiero acordarme,']],
+													['tiempo', 10,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
+													['vivía', 10,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
+													['hidalgo', 10,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
 													]
-
 '''
+													['lanza', 4.76,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']]
+													
+
+
 													['astillero', 4.76,['o ha mucho tiempo que vivía un hidalgo de los de lanza en astillero,']],
 													['adarga', 4.76,['adarga antigua, rocín flaco']], 
 													['antigua', 4.76,['adarga antigua, rocín flaco']],
