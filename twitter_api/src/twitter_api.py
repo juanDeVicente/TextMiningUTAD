@@ -27,7 +27,7 @@ class twitter_word_count(object):
 	def get_last_week_tweets(self, screen_name=None):
 
 		last_week = datetime.today() - timedelta(days=7)
-		return [x.text
+		return [x.full_text
 				for x in
 				self.api.GetUserTimeline(screen_name=screen_name, count=200, include_rts=False, exclude_replies=False)
 				if datetime.strptime(x.created_at, '%a %b %d %H:%M:%S %z %Y').timestamp() > last_week.timestamp()
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 	print('CONSUMER_SECRET:', CONSUMER_SECRET)
 
 	api = twitter.Api(
-		CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET
+		CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET, tweet_mode='extended'
 	)
 	screen_name = 'realdonaldtrump'  # Aqui va le nombre de la cuenta que queramos mirar (Arturo Perez Reverte) Si es None, devuelve los del usuario a los que este asociado la cuenta
 
