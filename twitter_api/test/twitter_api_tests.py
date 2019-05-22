@@ -1,7 +1,3 @@
-import pytest
-from unittest.mock import MagicMock
-
-import requests
 
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -13,7 +9,6 @@ import requests
 
 
 from twitter_api.src.twitter_api import twitter_word_count
-
 
 def test_less_than_10_tweets():
     tweets = ['Hola buenas dias, me llamo Pepe', 'buenas noches', 'me llamo pepe']
