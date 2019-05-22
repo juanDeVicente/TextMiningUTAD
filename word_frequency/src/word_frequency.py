@@ -40,8 +40,6 @@ def word_frequency(text, stopwords_language='english'):
     if len(words_count) == 0:
         return []
 
-    #map(words_count.items(), key=lambda x: x[1]/words_total)
-
     for key in words_count:
         words_count[key] = round((words_count[key] / words_total)*100, 1)
 
