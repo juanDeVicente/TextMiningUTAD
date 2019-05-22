@@ -27,11 +27,9 @@ class twitter_word_count(object):
     def get_last_week_tweets(self, screen_name=None):
 
         last_week = datetime.today() - timedelta(days=7)
-        last_week.srftime('%Y-%m-%d')
-        return [
-            tweet.text for tweet in
-            self.api.GetSearch(term = 'from:screen_name', since= last_week)
-            [0:50]
+        return [x.text
+                for x in self.api.GetUserTimeline(screen_name=screen_name, count=200, include_rts=False, exclude_replies=True)
+                if datetime.strptime(x.created_at, '%a %b %d %H:%M:%S %z %Y').timestamp() > last_week.timestamp()
         ]
 
     def get_most_used_words_and_tweets(self, screen_name=None, language='spanish'):
@@ -53,7 +51,7 @@ class twitter_word_count(object):
 
                 if key in aux_lowercase_tweet:
                     aux_tweet_list.append(tweet)
-            matrix.append([key, timesUsed,aux_tweet_list])
+            matrix.append([key, timesUsed, aux_tweet_list])
             aux_tweet_list = []
 
         return matrix
