@@ -19,16 +19,16 @@
 <div class="col-6 offset-3 text-center">
     <h1>Text Mining U-tad</h1>
     <form class="form justify-content-center">
+        {% csrf_token %}
+        {{search_form.errors}}
         <div class="form-row">
             <div class="col">
-                <input type="text" class="form-control" id="staticEmail2" placeholder="screen_name">
+                {{search_form.screen_name.errors}}
+                {{search_form.screen_name}}
             </div>
             <div class="col mx-sm-3 mb-2">
-                <select class="form-control">
-                    <option>Spanish</option>
-                    <option>French</option>
-                    <option>English</option>
-                </select>
+                {{search_form.language.errors}}
+                {{search_form.language}}
             </div>
         </div>
         <div class="form-row justify-content-center">
