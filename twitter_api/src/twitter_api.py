@@ -28,7 +28,8 @@ class twitter_word_count(object):
 
 		last_week = datetime.today() - timedelta(days=7)
 		return [x.text
-				for x in self.api.GetUserTimeline(screen_name=screen_name, include_rts=False, exclude_replies=True)
+				for x in
+				self.api.GetUserTimeline(screen_name=screen_name, count=200, include_rts=False, exclude_replies=False)
 				if datetime.strptime(x.created_at, '%a %b %d %H:%M:%S %z %Y').timestamp() > last_week.timestamp()
 				]
 
@@ -75,9 +76,9 @@ if __name__ == "__main__":
 	api = twitter.Api(
 		CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET
 	)
-	screen_name = 'perezreverte'  # Aqui va le nombre de la cuenta que queramos mirar (Arturo Perez Reverte) Si es None, devuelve los del usuario a los que este asociado la cuenta
+	screen_name = 'realdonaldtrump'  # Aqui va le nombre de la cuenta que queramos mirar (Arturo Perez Reverte) Si es None, devuelve los del usuario a los que este asociado la cuenta
 
-	language = 'spanish'
+	language = 'english'
 	twc = twitter_word_count(api)
 
 	for x in twc.get_most_used_words_and_tweets(screen_name, language):
