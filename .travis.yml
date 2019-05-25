@@ -26,7 +26,7 @@ script:
   - pytest twitter_api_tests.py
   - cd ..
   - cd ..
-  - cd test_mining_utad_web
+  - cd text_mining_utad_web
   - cd get_tweets
   - pytest tests.py
 branches:
