@@ -21,11 +21,19 @@ CONSUMER_SECRET = ''
 
 class twitter_word_count(object):
 
+
+
     def __init__(self, api):
+        '''
+        :param api: Api object from Twitter library
+        '''
         self.api = api
 
     def get_last_week_tweets(self, screen_name=None):
-
+        '''
+        :param screen_name: user name to search in twitter
+        :return: list of username last weeks tweets
+        '''
         last_week = datetime.today() - timedelta(days=7)
         last_week.srftime('%Y-%m-%d')
         return [
@@ -35,6 +43,12 @@ class twitter_word_count(object):
         ]
 
     def get_most_used_words_and_tweets(self, screen_name=None, language='spanish'):
+        '''
+        Function to be called from outside.
+        :param screen_name: twitter account to search for tweets
+        :param language(optional): language the tweets are expected to be written in. Spanish by default
+        :return: 3xtweets matrix with the structure [word,%of use,[list_of_tweets_word_is_in]]
+        '''
         try:
             tweets = self.get_last_week_tweets(screen_name)
         except requests.exceptions.ConnectionError:
@@ -45,6 +59,12 @@ class twitter_word_count(object):
         return self.create_words_and_tweets_matrix(tweets, counted_words)
 
     def create_words_and_tweets_matrix(self, tweets, words):
+        '''
+        merge list of words and tweets in return format
+        :param tweets: list of tweets returned by get_last_week_tweets()
+        :param words: dict of words and percentage of use returned by word_frequency()
+        :return: 3xtweets matrix with the structure [word,%of use,[list_of_tweets_word_is_in]]
+        '''
         matrix = []
         aux_tweet_list = []
         for key, timesUsed in words:
