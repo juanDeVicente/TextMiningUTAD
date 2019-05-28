@@ -6,11 +6,11 @@ from selenium.common.exceptions import WebDriverException
 
 def got_to_web():
     try:
-        driver = webdriver.Firefox(executable_path=r'geckodriver.exe')
+        driver = webdriver.Firefox(executable_path=r'/geckodriver/geckodriver.exe')
         driver.get('http://localhost:8000')
         return driver
     except Exception as e:
-        raise WebDriverException("can't kill an exited process")
+        raise WebDriverException("can't kill an exited process", e)
 
 
 
