@@ -39,7 +39,9 @@ class twitter_word_count(object):
 		except requests.exceptions.ConnectionError:
 			raise ValueError('No hay conexion a Internet')
 
-		if tweets is []:
+		print(tweets)
+
+		if len(tweets) == 0:
 			return []
 
 		tweets_array = reduce((lambda x, y: x + ', ' + y), tweets)
