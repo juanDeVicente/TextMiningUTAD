@@ -3,6 +3,7 @@ language: python
 python:
   - "3.7"
 env:
+  - MOZ_HEADLESS=1
   global:
     - ACCESS_TOKEN_SECRET=1114186530980073476-Y1u6SaTCMak48NwpZ8AAEEILlZC38K
     - ACCESS_TOKEN_KEY=SL6f1ZHXuTu8HJTLtaOCygNXOPbsHJ30GuI3bjIMoBEYC
@@ -10,8 +11,6 @@ env:
     - CONSUMER_SECRET=iUfmWCInprvLqAolSmA3D4Tqc0wOP2iXu7ASnPLTNc5wY8fLNU
 addons:
   - firefox: "latest"
-services:
-  - xvfb
 before_install:
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
   - mkdir geckodriver
