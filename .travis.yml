@@ -37,7 +37,8 @@ script:
   - cd ..
   - cd ..
   - cd text_mining_utad_web
-  - python manage.py behave
+  - cd get_tweets
+  - pytest tests.py
 branches:
   except:
     - master
