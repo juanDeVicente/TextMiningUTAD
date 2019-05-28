@@ -12,8 +12,6 @@ def word_frequency(text, stopwords_language='english'):
     the rounding: one decimal and upper
     the list will be order by most used word to least
     '''
-
-    nltk.data.path.append(os.path.dirname(__file__) + '/nltk_data')
     if not isinstance(text, str) or not isinstance(stopwords_language, str):
         raise ValueError
 
@@ -48,19 +46,6 @@ def word_frequency(text, stopwords_language='english'):
         words_count[key] = round((words_count[key] / words_total) * 100, 1)
 
     return sorted(words_count.items(), key=lambda x: x[1], reverse=True)  # Order by most used to least used
-
-
-def main(args):
-    """Main entry point allowing external calls
-    Args:
-      args ([str]): command line parameter list
-    """
-
-
-def run():
-    """Entry point for console_scripts
-    """
-    main(sys.argv[1:])
 
 
 if __name__ == "__main__":
