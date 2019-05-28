@@ -8,8 +8,9 @@ def before_all(context):
     try:
         binary = FirefoxBinary('/usr/local/bin/firefox')
         context.browser = webdriver.Firefox(firefox_binary=binary)
-    except Exception:
-        print('hola')
+    except Exception as e:
+        print(os.environ['PATH'])
+        print(e)
     context.browser.implicitly_wait(1)
     context.browser.get('http://localhost:8000')
 
