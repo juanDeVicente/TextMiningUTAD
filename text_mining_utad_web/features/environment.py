@@ -16,6 +16,7 @@ def before_all(context):
 
 
 def after_all(context):
+
     # Explicitly quits the browser, otherwise it won't once tests are done
 
     context.browser.quit()
