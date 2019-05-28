@@ -5,6 +5,13 @@ python:
   - "3.7-dev"  # 3.7 development branch
   - "3.8-dev"  # 3.8 development branch
   - "nightly"  # nightly build
+addons:
+    firefox: "latest"
+before_install:
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+  - mkdir geckodriver
+  - tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver
+  - export PATH=$PATH:$PWD/geckodriver
 install:
   - pip install -r requirements.txt
 script:
@@ -17,6 +24,10 @@ script:
   - cd twitter_api
   - cd test
   - pytest twitter_api_tests.py
+  - cd ..
+  - cd ..
+  - cd text_mining_utad_web
+  - python manage.py behave
 branches:
   except:
     - master
