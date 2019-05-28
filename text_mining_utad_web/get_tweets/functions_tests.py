@@ -6,10 +6,7 @@ from selenium.common.exceptions import WebDriverException
 
 def got_to_web():
     from selenium.webdriver.firefox.options import Options
-
-    options = Options()
-    options.add_argument('-headless')
-    driver = webdriver.Firefox(firefox_options=options)
+    driver = webdriver.Firefox()
     driver.get('http://localhost:8000')
     return driver
 
