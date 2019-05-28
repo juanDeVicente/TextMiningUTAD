@@ -2,6 +2,8 @@ dist: xenial   # required for Python >= 3.7
 language: python
 python:
   - "3.7"
+services:
+  - xvfb
 env:
   global:
     - ACCESS_TOKEN_SECRET=1114186530980073476-Y1u6SaTCMak48NwpZ8AAEEILlZC38K
