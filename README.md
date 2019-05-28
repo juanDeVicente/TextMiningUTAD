@@ -32,7 +32,7 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     ```
 ## Instrucciones para realizar una prueba de word_frequency
 1. Abrir la terminal
-2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
+2. Seleccionar la ruta del proyecto clonado y la carpeta en la terminal:
     ```
     cd <ruta_proyecto_clonado>/word_frequency
     ```
@@ -43,7 +43,7 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     
 ## Instrucciones para ejecutar los test de word_frequency
 1. Abrir la terminal
-2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
+2. Seleccionar la ruta del proyecto clonado y la carpeta en la terminal:
     ```
     cd <ruta_proyecto_clonado>/word_frequency/test
     ```
@@ -54,7 +54,7 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     
 ## Instrucciones para realizar una prueba de twitter_api
 1. Abrir la terminal
-2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
+2. Seleccionar la ruta del proyecto clonado y la carpeta en la terminal:
     ```
     cd <ruta_proyecto_clonado>/twitter_api
     ```
@@ -65,7 +65,7 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     
 ## Instrucciones para ejecutar los test de twitter_api
 1. Abrir la terminal
-2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
+2. Seleccionar la ruta del proyecto clonado y la carpeta en la terminal:
     ```
     cd <ruta_proyecto_clonado>/twitter_api/test
     ```
@@ -76,11 +76,21 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     
 ## Instrucciones para ejecutar el servidor de Django en local
 1. Abrir la terminal
-2. Seleccionar la ruta del proyecto clonado en el terminal:
+2. Seleccionar la ruta del proyecto clonado en la terminal:
     ```
     cd <ruta_proyecto_clonado>/text_mining_utad_web
     ```
 3. Ejecutar los siguientes comandos:
     ```
     python manage.py runserver
+    ```
+## Instrucciones para ejecutar los tests de bdd
+1. Abrir la terminal
+2. Seleccionar la ruta del proyecto clonadlo en la terminal:
+    ```
+    cd <ruta_proyecto_clonado>/text_mining_utad_web
+    ```
+3. Ejecutar los siguientes comandos:
+    ```
+    python manage.py behave
     ```
