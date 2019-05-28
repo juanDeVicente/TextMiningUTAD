@@ -1,12 +1,15 @@
 import os
 
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 
 def before_all(context):
     try:
-        context.browser = webdriver.Firefox(executable_path=r'features/geckodriver.exe')
+        options = Options()
+        options.set_headless(headless=True)
+        context.browser = webdriver.Firefox(firefox_options=options)
     except Exception as e:
         print(os.environ['PATH'])
         print(e)
