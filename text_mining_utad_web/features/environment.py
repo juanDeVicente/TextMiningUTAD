@@ -2,9 +2,10 @@ from selenium import webdriver
 
 
 def before_all(context):
-    # For debugging purposes, you can use the Firefox driver instead.
-
-    context.browser = webdriver.Firefox()
+    try:
+        context.browser = webdriver.Firefox()
+    except Exception:
+        print('hola')
     context.browser.implicitly_wait(1)
     context.browser.get('http://localhost:8000')
 
