@@ -7,9 +7,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def before_all(context):
     try:
-        options = Options()
-        options.set_headless(headless=True)
-        context.browser = webdriver.Firefox(firefox_options=options)
+        context.browser = webdriver.Firefox()
     except Exception as e:
         print(os.environ['PATH'])
         print(e)
