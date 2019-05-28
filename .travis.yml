@@ -31,7 +31,7 @@ script:
   - cd ..
   - cd ..
   - cd text_mining_utad_web
-  - python manage.py behave
+  - sudo python manage.py behave
 branches:
   except:
     - master
