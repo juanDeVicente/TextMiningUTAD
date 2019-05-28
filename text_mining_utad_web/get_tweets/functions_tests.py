@@ -4,7 +4,7 @@ from selenium import webdriver
 
 
 def got_to_web():
-    driver = webdriver.Firefox()
+    driver = webdriver.Firefox(executable_path=r'$PATH:$PWD/geckodriver')
     driver.get('http://localhost:8000')
     return driver
 
