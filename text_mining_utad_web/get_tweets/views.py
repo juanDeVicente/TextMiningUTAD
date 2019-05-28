@@ -26,6 +26,7 @@ def search_frequency_words(request):
 			return render(request, 'tweets_list.html', {'frequency_words': frequency_words})
 		response = HttpResponse('El formulario no es valido')
 		response.status_code = 400
+
 		return response
 	response = HttpResponse('Petición no válida')
 	response.status_code = 400
