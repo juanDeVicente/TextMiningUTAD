@@ -46,7 +46,6 @@ def step_impl(context):
     # Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
 
-    # Fill login form and submit it (valid version)
     br.find_element_by_id('search_button').click()
 
 
@@ -54,6 +53,6 @@ def step_impl(context):
 def step_impl(context):
     br = context.browser
 
-    # check list is empty
+    # check list is not empty
     list_empty = br.find_element_by_id('word0')
     assert list_empty is not None
