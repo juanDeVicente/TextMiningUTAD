@@ -5,12 +5,10 @@ from selenium.common.exceptions import WebDriverException
 
 
 def got_to_web():
-    try:
-        driver = webdriver.Firefox()
-        driver.get('http://localhost:8000')
-        return driver
-    except WebDriverException as e:
-        return driver
+    driver = webdriver.Firefox()
+    driver.get('http://localhost:8000')
+    return driver
+
 
 
 
