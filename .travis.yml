@@ -12,7 +12,7 @@ env:
     - CONSUMER_KEY=svF3zIsUcUtRB8RYU45SsAfzP
     - CONSUMER_SECRET=iUfmWCInprvLqAolSmA3D4Tqc0wOP2iXu7ASnPLTNc5wY8fLNU
 addons:
-  firefox: "latest"
+  firefox: "69.0"
 before_install:
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
   - mkdir geckodriver
