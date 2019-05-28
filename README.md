@@ -52,22 +52,22 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     python pytest word_frequency_tests.py
     ```
     
-## Instrucciones para realizar una prueba de twittwer_api
+## Instrucciones para realizar una prueba de twitter_api
 1. Abrir la terminal
 2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
     ```
-    cd <ruta_proyecto_clonado>/twittwer_api
+    cd <ruta_proyecto_clonado>/twitter_api
     ```
 3. Ejecutar el siguiente comando:
     ```
     python twittwer_api.py
     ```
     
-## Instrucciones para ejecutar los test de twittwer_api
+## Instrucciones para ejecutar los test de twitter_api
 1. Abrir la terminal
 2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
     ```
-    cd <ruta_proyecto_clonado>/twittwer_api/test
+    cd <ruta_proyecto_clonado>/twitter_api/test
     ```
 3. Ejecutar el siguiente comando:
     ```
