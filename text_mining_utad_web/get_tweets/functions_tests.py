@@ -9,7 +9,7 @@ def got_to_web():
 
     options = Options()
     options.add_argument('-headless')
-    driver = webdriver.Firefox(options)
+    driver = webdriver.Firefox(firefox_options=options)
     driver.get('http://localhost:8000')
     return driver
 
