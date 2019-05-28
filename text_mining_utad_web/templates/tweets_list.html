@@ -11,7 +11,7 @@
 </div>
 {% for word in frequency_words %}
 <div class="row">
-    <div class="col-2">
+    <div class="col-2" id="word{{forloop.counter0}}">
         {{word.0}}
     </div>
     <div class="col-1">
