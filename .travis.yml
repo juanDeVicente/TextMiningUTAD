@@ -9,14 +9,19 @@ env:
     - CONSUMER_KEY=svF3zIsUcUtRB8RYU45SsAfzP
     - CONSUMER_SECRET=iUfmWCInprvLqAolSmA3D4Tqc0wOP2iXu7ASnPLTNc5wY8fLNU
 addons:
-  chrome: stable
+  - firefox: "latest"
 before_install:
-  - wget http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python2.7.12/bin/
-  - export CHROME_BIN=chromium-browser
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+  - mkdir geckodriver
+  - tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver
+  - export PATH=$PATH:$PWD/geckodriver
   - export PYTHONPATH=$PYTHONPATH:$(pwd)
 install:
   - pip install -r requirements.txt
+before_script:
+  - cd text_mining_utad_web
+  - python manage.py runserver &
+  - cd ..
 script:
   - python -m nltk.downloader "stopwords"
   - cd word_frequency
