@@ -30,4 +30,14 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     >>> os.environ['CONSUMER_KEY'] = <tu_consumer_key>
     >>> os.environ['CONSUMER_SECRET'] = <tu_consumer_secret>
     ```
-
+## Instrucciones para ejecutar el servidor de Django en local
+1. Abrir la terminal
+2. Seleccionar la ruta del proyecto clonado en el terminal:
+    ```
+    cd <ruta_proyecto_clonado>
+    ```
+3. Ejecutar los siguientes comandos:
+    ```
+    cd text_mining_utad_web
+    python manage.py runserver
+    ```
