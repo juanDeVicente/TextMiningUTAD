@@ -12,8 +12,6 @@ def word_frequency(text, stopwords_language='english'):
     the rounding: one decimal and upper
     the list will be order by most used word to least
     '''
-
-    nltk.data.path.append(os.path.dirname(__file__) + '/nltk_data')
     if not isinstance(text, str) or not isinstance(stopwords_language, str):
         raise ValueError
 
