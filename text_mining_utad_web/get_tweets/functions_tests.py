@@ -1,12 +1,18 @@
 from selenium import webdriver
 
 # FUNCTIONS USED ON THE  SELENIUM TESTS
+from selenium.common.exceptions import WebDriverException
 
 
 def got_to_web():
-    driver = webdriver.Firefox(executable_path=r'$PATH:$PWD/geckodriver')
-    driver.get('http://localhost:8000')
-    return driver
+    try:
+        driver = webdriver.Firefox(executable_path=r'geckodriver.exe')
+        driver.get('http://localhost:8000')
+        return driver
+    except Exception as e:
+        raise WebDriverException("can't kill an exited process")
+
+
 
 
 def list_is_not_empty(context):
