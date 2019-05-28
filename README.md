@@ -30,14 +30,57 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     >>> os.environ['CONSUMER_KEY'] = <tu_consumer_key>
     >>> os.environ['CONSUMER_SECRET'] = <tu_consumer_secret>
     ```
+## Instrucciones para realizar una prueba de word_frequency
+1. Abrir la terminal
+2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
+    ```
+    cd <ruta_proyecto_clonado>/word_frequency
+    ```
+3. Ejecutar el siguiente comando:
+    ```
+    python word_frequency.py
+    ```
+    
+## Instrucciones para ejecutar los test de word_frequency
+1. Abrir la terminal
+2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
+    ```
+    cd <ruta_proyecto_clonado>/word_frequency/test
+    ```
+3. Ejecutar el siguiente comando:
+    ```
+    python pytest word_frequency_tests.py
+    ```
+    
+## Instrucciones para realizar una prueba de twittwer_api
+1. Abrir la terminal
+2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
+    ```
+    cd <ruta_proyecto_clonado>/twittwer_api
+    ```
+3. Ejecutar el siguiente comando:
+    ```
+    python twittwer_api.py
+    ```
+    
+## Instrucciones para ejecutar los test de twittwer_api
+1. Abrir la terminal
+2. Seleccionar la ruta del proyecto clonado y la carpeta en el terminal:
+    ```
+    cd <ruta_proyecto_clonado>/twittwer_api/test
+    ```
+3. Ejecutar el siguiente comando:
+    ```
+    python pytest twittwer_api_tests.py
+    ```
+    
 ## Instrucciones para ejecutar el servidor de Django en local
 1. Abrir la terminal
 2. Seleccionar la ruta del proyecto clonado en el terminal:
     ```
-    cd <ruta_proyecto_clonado>
+    cd <ruta_proyecto_clonado>/text_mining_utad_web
     ```
 3. Ejecutar los siguientes comandos:
     ```
-    cd text_mining_utad_web
     python manage.py runserver
     ```
