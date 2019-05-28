@@ -50,19 +50,6 @@ def word_frequency(text, stopwords_language='english'):
     return sorted(words_count.items(), key=lambda x: x[1], reverse=True)  # Order by most used to least used
 
 
-def main(args):
-    """Main entry point allowing external calls
-    Args:
-      args ([str]): command line parameter list
-    """
-
-
-def run():
-    """Entry point for console_scripts
-    """
-    main(sys.argv[1:])
-
-
 if __name__ == "__main__":
 
     print(word_frequency("hola adios hola", "spanish"))
