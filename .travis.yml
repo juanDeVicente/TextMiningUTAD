@@ -15,6 +15,7 @@ before_install:
   - mkdir geckodriver
   - tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver
   - export PATH=$PATH:$PWD/geckodriver
+  - echo $PATH
   - export PYTHONPATH=$PYTHONPATH:$(pwd)
 install:
   - pip install -r requirements.txt
@@ -31,7 +32,7 @@ script:
   - cd ..
   - cd ..
   - cd text_mining_utad_web
-  - sudo python manage.py behave
+  - python manage.py behave
 branches:
   except:
     - master
