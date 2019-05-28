@@ -23,7 +23,7 @@ install:
 before_script:
   - python -m nltk.downloader "stopwords"
   - cd text_mining_utad_web
-  - python manage.py runserver &
+  - python manage.py runserver 8000
   - cd ..
 script:
   - cd word_frequency
