@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from django.test import TestCase
 import time
 from text_mining_utad_web.get_tweets.functions_tests import *
 from selenium.webdriver.common.keys import Keys
