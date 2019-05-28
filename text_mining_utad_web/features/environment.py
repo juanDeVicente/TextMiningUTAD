@@ -6,7 +6,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def before_all(context):
     try:
-        context.browser = webdriver.Chrome()
+        context.browser = webdriver.Firefox()
     except Exception as e:
         print(os.environ['PATH'])
         print(e)
