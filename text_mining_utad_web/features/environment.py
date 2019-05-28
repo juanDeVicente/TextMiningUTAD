@@ -6,7 +6,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def before_all(context):
     try:
-        binary = FirefoxBinary(os.environ['PATH'])
+        binary = FirefoxBinary('/usr/local/bin/firefox')
         context.browser = webdriver.Firefox(firefox_binary=binary)
     except Exception:
         print('hola')
