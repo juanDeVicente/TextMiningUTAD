@@ -14,7 +14,7 @@ env:
 before_install:
   - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
   - mkdir geckodriver
-  - tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C text_mining_utad_web -C get_tweets
+  #- tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver
   - export PATH=$PATH:$PWD/geckodriver
 addons:
   firefox: "latest"
@@ -35,8 +35,7 @@ script:
   - pytest twitter_api_tests.py
   - cd ..
   - cd ..
-  - cd text_mining_utad_web
-  - cd get_tweets
+
   - pytest tests.py
 branches:
   except:

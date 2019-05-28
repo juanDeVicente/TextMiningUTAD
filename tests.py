@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import time
-from text_mining_utad_web.get_tweets.functions_tests import *
+from functions_tests import *
 from selenium.webdriver.common.keys import Keys
 
 
