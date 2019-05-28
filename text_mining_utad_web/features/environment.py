@@ -1,9 +1,13 @@
+import os
+
 from selenium import webdriver
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 
 def before_all(context):
     try:
-        context.browser = webdriver.Firefox()
+        binary = FirefoxBinary(os.environ['PATH'])
+        context.browser = webdriver.Firefox(firefox_binary=binary)
     except Exception:
         print('hola')
     context.browser.implicitly_wait(1)
