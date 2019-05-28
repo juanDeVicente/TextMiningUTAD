@@ -10,7 +10,7 @@ def got_to_web():
         driver.get('http://localhost:8000')
         return driver
     except WebDriverException as e:
-        raise WebDriverException("can't kill an exited process", e)
+        return
 
 
 
