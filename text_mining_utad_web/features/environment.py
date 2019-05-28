@@ -6,6 +6,7 @@ def before_all(context):
     context.browser = webdriver.Firefox()
     context.browser.implicitly_wait(1)
     context.browser.get('http://localhost:8000')
+    context.browser.implicitly_wait(1)
 
 
 def after_all(context):
