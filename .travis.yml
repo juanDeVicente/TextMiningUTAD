@@ -5,6 +5,16 @@ python:
   - "3.7-dev"  # 3.7 development branch
   - "3.8-dev"  # 3.8 development branch
   - "nightly"  # nightly build
+env:
+  - ACCESS_TOKEN_SECRET= 1114186530980073476-Y1u6SaTCMak48NwpZ8AAEEILlZC38K
+  - ACCESS_TOKEN_KEY=SL6f1ZHXuTu8HJTLtaOCygNXOPbsHJ30GuI3bjIMoBEYC
+  - CONSUMER_KEY=svF3zIsUcUtRB8RYU45SsAfzP
+  - CONSUMER_SECRET=iUfmWCInprvLqAolSmA3D4Tqc0wOP2iXu7ASnPLTNc5wY8fLNU
+before_install:
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
+  - mkdir geckodriver
+  - tar -xzf geckodriver-v0.11.1-linux64.tar.gz -C geckodriver
+  - export PATH=$PATH:$PWD/geckodriver
 addons:
   firefox: "latest"
 install:
@@ -22,6 +32,7 @@ script:
   - cd ..
   - cd ..
   - cd text_mining_utad_web
+  - python manage.py runserver
   - cd get_tweets
   - pytest tests.py
 branches:
