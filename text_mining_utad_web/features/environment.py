@@ -6,7 +6,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 def before_all(context):
     try:
-        context.browser = webdriver.Firefox()
+        context.browser = webdriver.Firefox(executable_path=r'features/geckodriver.exe')
     except Exception as e:
         print(os.environ['PATH'])
         print(e)
