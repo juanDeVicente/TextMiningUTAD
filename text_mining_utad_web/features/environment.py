@@ -11,8 +11,10 @@ def before_all(context):
     except Exception as e:
         print(os.environ['PATH'])
         print(e)
-    context.browser.implicitly_wait(10)
-    context.browser.get('http://localhost:8000')
+    context.browser.implicitly_wait(1)
+    context.server_url = 'http://localhost:8000'
+    context.browser.get(context.server_url)
+    context.browser.implicitly_wait(1)
 
 
 def after_all(context):
