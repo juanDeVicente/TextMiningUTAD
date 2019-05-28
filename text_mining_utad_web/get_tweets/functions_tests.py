@@ -10,9 +10,6 @@ def got_to_web():
     return driver
 
 
-
-
-
 def list_is_not_empty(context):
     try:
         context.find_element_by_id('word0')
