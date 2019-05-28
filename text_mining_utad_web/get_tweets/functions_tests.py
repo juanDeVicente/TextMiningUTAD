@@ -9,7 +9,7 @@ def got_to_web():
         driver = webdriver.Firefox()
         driver.get('http://localhost:8000')
         return driver
-    except Exception as e:
+    except WebDriverException as e:
         raise WebDriverException("can't kill an exited process", e)
 
 
