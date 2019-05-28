@@ -6,7 +6,7 @@ from selenium.common.exceptions import WebDriverException
 
 def got_to_web():
     try:
-        driver = webdriver.Firefox(executable_path=r'/geckodriver/geckodriver.tar')
+        driver = webdriver.Firefox(executable_path=r'/geckodriver/geckodriver.tar.gz')
         driver.get('http://localhost:8000')
         return driver
     except Exception as e:
