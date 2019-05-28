@@ -11,20 +11,21 @@ env:
     - ACCESS_TOKEN_KEY=SL6f1ZHXuTu8HJTLtaOCygNXOPbsHJ30GuI3bjIMoBEYC
     - CONSUMER_KEY=svF3zIsUcUtRB8RYU45SsAfzP
     - CONSUMER_SECRET=iUfmWCInprvLqAolSmA3D4Tqc0wOP2iXu7ASnPLTNc5wY8fLNU
-before_install:
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
-  - mkdir geckodriver
-  - tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver
-  - export PATH=$PATH:$PWD/geckodriver
 addons:
   firefox: "latest"
+before_install:
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
+  - mkdir geckodriver
+  - tar -xzf geckodriver-v0.11.1-linux64.tar.gz -C geckodriver
+  - export PATH=$PATH:$PWD/geckodriver
 install:
   - pip install -r requirements.txt
-script:
-  - python -m nltk.downloader "stopwords"
+before_script:
   - cd text_mining_utad_web
   - python manage.py runserver &
   - cd ..
+script:
+  - python -m nltk.downloader "stopwords"
   - cd word_frequency
   - cd test
   - pytest word_frequency_tests.py
@@ -36,8 +37,7 @@ script:
   - cd ..
   - cd ..
   - cd text_mining_utad_web
-  - cd get_tweets
-  - pytest tests.py
+  - behave /features/search.feature
 branches:
   except:
     - master
@@ -48,5 +48,6 @@ notifications:
       - claudia.rodriguez@live.u-tad.com
       - jaime.escribano@live.u-tad.com
       - juan.vicente@live.u-tad.com
+      - raul.lopez@live.u-tad.com
     on_failure: never
     on_success: always
