@@ -20,8 +20,9 @@ def search_frequency_words(request):
 		if form.is_valid():
 			screen_name = form.cleaned_data['screen_name']
 			language = form.cleaned_data['language']
-			print(language)
 			frequency_words = twitter_word_count(settings.API_TWITTER).get_most_used_words_and_tweets(screen_name, language)
+			if len(frequency_words) == 0:
+				return HttpResponse('No hay tweets disponibles')
 			return render(request, 'tweets_list.html', {'frequency_words': frequency_words})
 		response = HttpResponse('El formulario no es valido')
 		response.status_code = 400
