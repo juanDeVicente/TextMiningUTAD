@@ -12,9 +12,7 @@ def before_all(context):
         print(os.environ['PATH'])
         print(e)
     context.browser.implicitly_wait(1)
-    context.server_url = 'http://localhost:8000'
-    context.browser.get(context.server_url)
-    context.browser.implicitly_wait(1)
+    context.browser.get('http://localhost:8000')
 
 
 def after_all(context):
@@ -25,7 +23,4 @@ def after_all(context):
 
 def before_feature(context, feature):
     # Code to be executed each time a feature is going to be tested
-    if feature.name == 'Delete button':
-        br = context.browser
-        # set the ￿￿'@' of the user we want to search
-        br.find_element_by_id('search_button').click()
+    pass
