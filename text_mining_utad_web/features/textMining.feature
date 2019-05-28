@@ -1,6 +1,7 @@
 Feature: Website
 
   Scenario: Search an user tweets.
+
 	  Given I have not entered an user
 	  Given I cant see the list with the tuits
 	  When I introduce an user
