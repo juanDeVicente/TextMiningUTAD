@@ -37,7 +37,8 @@ script:
   - cd ..
   - cd ..
   - cd text_mining_utad_web
-  - behave /features/search.feature
+  - cd features
+  - behave 
 branches:
   except:
     - master
