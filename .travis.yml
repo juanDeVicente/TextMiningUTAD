@@ -21,7 +21,7 @@ addons:
 install:
   - pip install -r requirements.txt
 before_script:
-  - python /text_mining_utad_web/manage.py runserver &
+  - python /text_mining_utad_web/manage.py runserver
 script:
   - python -m nltk.downloader "stopwords"
   - cd word_frequency
