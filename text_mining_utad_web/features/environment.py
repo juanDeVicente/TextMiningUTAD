@@ -5,7 +5,8 @@ def before_all(context):
     # For debugging purposes, you can use the Firefox driver instead.
     context.browser = webdriver.Firefox()
     context.browser.implicitly_wait(1)
-    context.browser.get('http://localhost:8000')
+    context.server_url = 'http://localhost:8000'
+    context.browser.get(context.server_url)
     context.browser.implicitly_wait(1)
 
 
