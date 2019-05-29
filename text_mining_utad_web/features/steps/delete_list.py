@@ -13,6 +13,7 @@ def step_impl(context):
     # Fill login form and submit it (valid version)
     br.find_element_by_id('search_button').click()
 
+    print(br.page_source)
     br.implicitly_wait(5)
 
     assert br.find_element_by_id('word0')
