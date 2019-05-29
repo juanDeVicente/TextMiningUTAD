@@ -6,13 +6,11 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 
 def before_all(context):
-    try:
-        context.browser = webdriver.Firefox()
-    except Exception as e:
-        print(os.environ['PATH'])
-        print(e)
+    context.browser = webdriver.Firefox()
     context.browser.implicitly_wait(1)
-    context.browser.get('http://localhost:8000')
+    context.server_url = 'http://localhost:8000'
+    context.browser.get(context.server_url)
+    context.browser.implicitly_wait(1)
 
 
 def after_all(context):
