@@ -10,11 +10,7 @@ def step_impl(context):
     br.find_element_by_id('id_screen_name').send_keys('rayato27')
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
 
-    
     br.find_element_by_id('search_button').click()
-
-    print(br.page_source)
-    br.implicitly_wait(5)
 
     assert br.find_element_by_id('word0')
 
@@ -24,6 +20,7 @@ def step_impl(context):
 
     br = context.browser
 
+    # Fill login form and submit it (valid version)
     br.find_element_by_id('delete_button').click()
 
 
