@@ -2,11 +2,29 @@ dist: xenial   # required for Python >= 3.7
 language: python
 python:
   - "3.7"
-  - "3.7-dev"  # 3.7 development branch
-  - "3.8-dev"  # 3.8 development branch
-  - "nightly"  # nightly build
+services:
+  - xvfb
+env:
+  global:
+    - ACCESS_TOKEN_KEY=831510109629071361-OFLx61XL1iiFQNDvH1OeBYgBWZn5dQR
+    - ACCESS_TOKEN_SECRET=l3NObDqc4psYpok3YSv7HFKwuVEAdijABoE0WSE3CEfDT
+    - CONSUMER_KEY=xJBNVbtmRJrd44fslR38GiJNr
+    - CONSUMER_SECRET=w22znbElOOjVs2oYORs2hqxmUF1K6MfJ3YUEoefttZVDG5SbwW
+
+addons:
+  - firefox: "latest"
+before_install:
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+  - mkdir geckodriver
+  - tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver
+  - export PATH=$PATH:$PWD/geckodriver
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)
 install:
   - pip install -r requirements.txt
+before_script:
+  - cd text_mining_utad_web
+  - python manage.py runserver &
+  - cd ..
 script:
   - python -m nltk.downloader "stopwords"
   - cd word_frequency
@@ -17,6 +35,10 @@ script:
   - cd twitter_api
   - cd test
   - pytest twitter_api_tests.py
+  - cd ..
+  - cd ..
+  - cd text_mining_utad_web
+  - python manage.py behave
 branches:
   except:
     - master

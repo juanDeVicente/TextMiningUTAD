@@ -15,7 +15,7 @@ def index(request):
 
 
 def search_frequency_words(request):
-	if request.method == 'POST' and request.is_ajax():
+	if request.method == 'POST':
 		form = search_form(request.POST)
 		if form.is_valid():
 			screen_name = form.cleaned_data['screen_name']
