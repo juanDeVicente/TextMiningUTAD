@@ -60,10 +60,10 @@ class twitter_word_count(object):
 
 if __name__ == "__main__":
 	try:
-		ACCESS_TOKEN_KEY = os.environ['ACCESS_TOKEN_KEY']
-		ACCESS_TOKEN_SECRET = os.environ['ACCESS_TOKEN_SECRET']
-		CONSUMER_KEY = os.environ['CONSUMER_KEY']
-		CONSUMER_SECRET = os.environ['CONSUMER_SECRET']
+		ACCESS_TOKEN_KEY = "SL6f1ZHXuTu8HJTLtaOCygNXOPbsHJ30GuI3bjIMoBEYC"
+		ACCESS_TOKEN_SECRET = "1114186530980073476-Y1u6SaTCMak48NwpZ8AAEEILlZC38K"
+		CONSUMER_KEY = "svF3zIsUcUtRB8RYU45SsAfzP"
+		CONSUMER_SECRET = "iUfmWCInprvLqAolSmA3D4Tqc0wOP2iXu7ASnPLTNc5wY8fLNU"
 	except KeyError:
 		print('No se ha establecido algun parametro para conectar con la api de Twitter')
 		exit(-1)
