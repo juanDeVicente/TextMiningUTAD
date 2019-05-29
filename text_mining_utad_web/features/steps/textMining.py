@@ -22,6 +22,18 @@ def step_impl(context):
         br.find_element_by_id('word0')
 
 
+@given('I have the list with the tuits')
+def step_impl(context):
+    br = context.browser
+    # check list is not empty
+    br.find_element_by_id('id_screen_name').send_keys('rayato27')
+    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+
+    br.find_element_by_id('search_button').click()
+
+    assert br.find_element_by_id('word0')
+
+
 @when("I introduce an user")
 def step_impl(context):
     """
@@ -36,56 +48,44 @@ def step_impl(context):
     """
     :type context: behave.runner.Context
     """
-    br = context.browser
-    br.find_element_by_id('id_language').send_keys('Spanish')
+
+    context.find_element_by_id('id_language').send_keys('Spanish')
 
 
 @when("I press search button")
 def step_impl(context):
 
-    br = context.browser
-    # Checks for Cross-Site Request Forgery protection input
-    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
 
-    br.find_element_by_id('search_button').click()
+    # Checks for Cross-Site Request Forgery protection input
+    assert context.find_element_by_name('csrfmiddlewaretoken').is_enabled()
+
+    context.find_element_by_id('search_button').click()
 
 
 @then('I can see the list with the tuits')
 def step_impl(context):
-    br = context.browser
+
 
     # check list is not empty
-    list_empty = br.find_element_by_id('word0')
+    list_empty = context.find_element_by_id('word0')
     assert list_empty is not None
 
-
-@given('I have the list with the tuits')
-def step_impl(context):
-    br = context.browser
-    # check list is not empty
-    br.find_element_by_id('id_screen_name').send_keys('rayato27')
-    assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
-
-    br.find_element_by_id('search_button').click()
-
-    assert br.find_element_by_id('word0')
 
 
 @when('I press delete button')
 def step_impl(context):
-    br = context.browser
 
-    br.find_element_by_id('delete_button').click()
+    context.find_element_by_id('delete_button').click()
 
 
 @then('I do no￿t have the list with the tuits')
 def step_impl(context):
-    br = context.browser
+   # br = context.browser
 
     # check list is empty
 
     try:
-        br.find_element_by_id('word0')
+        context.find_element_by_id('word0')
     except NoSuchElementException:
         return True
     return False

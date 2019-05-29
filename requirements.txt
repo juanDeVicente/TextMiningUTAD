@@ -5,5 +5,5 @@ requests
 pytest
 nltk==3.4
 python-twitter == 3.5
-selenium==3.0.2
+selenium==3.7.0
 
