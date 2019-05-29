@@ -11,7 +11,7 @@ def before_all(context):
     context.server_url = 'http://localhost:8000'
     context.browser.get(context.server_url)
     context.browser.implicitly_wait(1)
-    print('holswuertrdfgjdfkl', os.environ['CONSUMER_KEY'])
+    print('holswuertrdfgjdfkl', type(os.environ['CONSUMER_KEY']))
 
 
 def after_all(context):
