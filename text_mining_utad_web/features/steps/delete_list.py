@@ -13,6 +13,8 @@ def step_impl(context):
     
     br.find_element_by_id('search_button').click()
 
+    br.implicitly_wait(5)
+
     assert br.find_element_by_id('word0')
 
 
