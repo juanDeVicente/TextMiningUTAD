@@ -1,13 +1,11 @@
 from selenium import webdriver
 
 # FUNCTIONS USED ON THE  SELENIUM TESTS
-from selenium.common.exceptions import WebDriverException
 
 
 def got_to_web():
-    from selenium.webdriver.firefox.options import Options
     driver = webdriver.Firefox()
-    driver.get('http://localhost:8000')
+    driver.get("http://127.0.0.1:8000/")
     return driver
 
 
