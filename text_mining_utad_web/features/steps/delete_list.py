@@ -5,8 +5,6 @@ from selenium.common.exceptions import NoSuchElementException
 @given('I have the list with the tuits')
 def step_impl(context):
     br = context.browser
-    print(br.page_source)
-    # check list is not empty
     br.find_element_by_id('id_screen_name').send_keys('rayato27')
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
 
@@ -19,8 +17,7 @@ def step_impl(context):
 def step_impl(context):
 
     br = context.browser
-
-    # Fill login form and submit it (valid version)
+    print(br.page_source)
     br.find_element_by_id('delete_button').click()
 
 
