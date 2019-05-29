@@ -7,7 +7,9 @@ Aplicación web realizada con [Django](https://www.djangoproject.com/) en [Pytho
 [Paula Pascual](https://github.com/PaulaPascual)<br>
 [Claudia Rodríguez](https://github.com/ClaudiaRodriguezM)<br>
 ## Consideraciones
-Para poder ejecutar los tests de Selenium es necesario tener instalado el navegador web [Firefox](https://www.mozilla.org/firefox/new/).
+Para poder ejecutar los tests de Selenium es necesario tener instalado el navegador web [Firefox](https://www.mozilla.org/firefox/new/)
+así como [Geckodriver.exe](https://github.com/mozilla/geckodriver/releases)
+
 ## Instrucciones de instalación
 1. Clonar el repositorio git.
 2. Instalar las librerias listadas en [requirements.txt](https://github.com/juanDeVicente/get_last_50_tweets/blob/master/requirements.txt).
@@ -30,6 +32,13 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     >>> os.environ['CONSUMER_KEY'] = <tu_consumer_key>
     >>> os.environ['CONSUMER_SECRET'] = <tu_consumer_secret>
     ```
+ 5. Añadir Geckodriver a las variables de entorno:
+        Este Equipo - Propiedades
+        Configuración avanzada del sistema
+        Variables de entorno 
+        Variables de entorno del sistema
+        Hacer click en la variable 'Path' -> Nuevo -> <ruta_de_geckodriver>\geckodriver
+        
 ## Instrucciones para realizar una prueba de word_frequency
 1. Abrir la terminal
 2. Seleccionar la ruta del proyecto clonado y la carpeta en la terminal:
@@ -94,3 +103,4 @@ Para poder ejecutar los tests de Selenium es necesario tener instalado el navega
     ```
     python manage.py behave
     ```
+    
