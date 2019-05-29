@@ -11,7 +11,6 @@ def before_all(context):
     context.server_url = 'http://localhost:8000'
     context.browser.get(context.server_url)
     context.browser.implicitly_wait(1)
-    print(context.browser.page_source)
 
 
 def after_all(context):
