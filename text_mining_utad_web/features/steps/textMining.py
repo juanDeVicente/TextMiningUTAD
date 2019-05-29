@@ -40,7 +40,7 @@ def step_impl(context):
     :type context: behave.runner.Context
     """
     br = context.browser
-    br.find_element_by_id('id_screen_name').send_keys('rayato27')
+    context.find_element_by_id('id_screen_name').send_keys('rayato27')
 
 
 @when("I introduce a language")
