@@ -33,11 +33,16 @@ así como [Geckodriver.exe](https://github.com/mozilla/geckodriver/releases)
     >>> os.environ['CONSUMER_SECRET'] = <tu_consumer_secret>
     ```
  5. Añadir Geckodriver a las variables de entorno:
-        -Este Equipo - Propiedades
-        -Configuración avanzada del sistema
-        -Variables de entorno 
-        -Variables de entorno del sistema
-        -Hacer click en la variable 'Path' -> Nuevo -> <ruta_de_geckodriver>\geckodriver
+       1. Buscamos "Mi equipo" en búsqueda, botón derecho "Propiedades"
+       ![N|Solid](https://imgur.com/A5DnM1B)
+       2. Configuración avanzada de distema
+       ![N|Solid](https://imgur.com/iGOIwA1)
+       3. Variables de entorno
+       ![N|Solid](https://imgur.com/TO6wuKK)
+       4. Buscamos la variable "Path" y le damos a "Editar"
+       ![N|Solid](https://imgur.com/60dZVnF)
+       5. Buscamos el Path donde se encuentra geckodriver, lo copiamos y lo añadimos en la variable
+       ![N|Solid](https://imgur.com/3zdiuSw)
         
 ## Instrucciones para realizar una prueba de word_frequency
 1. Abrir la terminal
