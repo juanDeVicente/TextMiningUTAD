@@ -8,7 +8,11 @@ python:
   - "3.8-dev"  # 3.8 development branch
   - "nightly"  # nightly build
 env:
-  - MOZ_HEADLESS=1
+  global:
+    - ACCESS_TOKEN_SECRET=SL6f1ZHXuTu8HJTLtaOCygNXOPbsHJ30GuI3bjIMoBEYC
+    - ACCESS_TOKEN_KEY=1114186530980073476-Y1u6SaTCMak48NwpZ8AAEEILlZC38K
+    - CONSUMER_KEY=svF3zIsUcUtRB8RYU45SsAfzP
+    - CONSUMER_SECRET=iUfmWCInprvLqAolSmA3D4Tqc0wOP2iXu7ASnPLTNc5wY8fLNU
 addons:
   firefox: "latest"
 before_install:
@@ -35,7 +39,8 @@ script:
   - cd ..
   - cd ..
   - cd text_mining_utad_web
-  - behave features
+  - cd get_tweets
+  - pytests tests.py 
 branches:
   except:
     - master
