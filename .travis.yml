@@ -38,8 +38,7 @@ script:
   - cd ..
   - cd ..
   - cd text_mining_utad_web
-  - cd get_tweets
-  - pytest tests.py
+  - behave features
 branches:
   except:
     - master
