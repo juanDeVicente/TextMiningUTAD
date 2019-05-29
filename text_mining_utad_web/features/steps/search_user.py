@@ -8,7 +8,6 @@ def step_impl(context):
     :type context: behave.runner.Context
     """
     br = context.browser
-    print(br.page_source)
     assert br.find_element_by_id('id_screen_name').get_property('value') == ''
 
 
@@ -47,7 +46,6 @@ def step_impl(context):
     # Checks for Cross-Site Request Forgery protection input
     assert br.find_element_by_name('csrfmiddlewaretoken').is_enabled()
 
-    # Fill login form and submit it (valid version)
     br.find_element_by_id('search_button').click()
 
 
